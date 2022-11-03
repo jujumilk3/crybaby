@@ -1,14 +1,34 @@
-[tool.poetry]
-name = "crybaby"
-version = "0.0.1"
-description = ""
-authors = ["gyudoza <jujumilk3@gmail.com>"]
+[project]
+name = 'crybaby'
+dynamic = ['version']
+description = 'Python exception handler that sends error messages to Slack.'
+readme = 'README.md'
+requires-python = '>=3.7.13'
+license = 'MIT'
+authors = [
+    { name = 'gyudoza', email = 'jujumilk3@gmail.com' },
+]
+classifiers = [
+    'Programming Language :: Python :: 3',
+    'License :: OSI Approved :: MIT License',
+    'Operating System :: OS Independent',
+]
 
-[tool.poetry.dependencies]
-python = "^3.7.13"
-
-[tool.poetry.dev-dependencies]
+[project.urls]
+homepage = 'https://github.com/jujumilk3/pycular'
+bug-tracker = 'https://github.com/jujumilk3/pycular/issues'
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ['hatchling']
+build-backend = 'hatchling.build'
+
+[tool.hatch.version]
+path = 'crybaby/__init__.py'
+
+[tool.black]
+line-length = 120
+include = '\.pyi?$'
+
+[tool.isort]
+profile = 'black'
+line_length = 120
