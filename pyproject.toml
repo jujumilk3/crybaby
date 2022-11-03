@@ -15,8 +15,8 @@ classifiers = [
 ]
 
 [project.urls]
-homepage = 'https://github.com/jujumilk3/pycular'
-bug-tracker = 'https://github.com/jujumilk3/pycular/issues'
+homepage = 'https://github.com/jujumilk3/crybaby'
+bug-tracker = 'https://github.com/jujumilk3/crybaby/issues'
 
 [build-system]
 requires = ['hatchling']
