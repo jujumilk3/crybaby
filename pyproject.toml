@@ -3,7 +3,7 @@ name = 'crybaby'
 dynamic = ['version']
 description = 'Python exception handler that sends error messages to Slack.'
 readme = 'README.md'
-requires-python = '>=3.7.13'
+requires-python = '>=3.6.0'
 license = 'MIT'
 authors = [
     { name = 'gyudoza', email = 'jujumilk3@gmail.com' },
@@ -25,10 +25,11 @@ build-backend = 'hatchling.build'
 [tool.hatch.version]
 path = 'crybaby/__init__.py'
 
+packages=["crybaby"]
+dependencies = [
+    "requests",
+]
+
 [tool.black]
 line-length = 120
 include = '\.pyi?$'
-
-[tool.isort]
-profile = 'black'
-line_length = 120
