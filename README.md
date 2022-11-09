@@ -20,11 +20,8 @@ def handled_exception():
         raise Exception("Handled exception")
     except Exception as e:
         crybaby.catch(e)
-        print(e)
-        pass
 
 
-# unhandled exception
 if __name__ == "__main__":
     crybaby.setup(
         slack_token="xoxb-sample-slack-token", slack_channel_id="SLACKCHANNELID"
