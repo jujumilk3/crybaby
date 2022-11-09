@@ -7,7 +7,7 @@
     <img src="https://img.shields.io/pypi/v/crybaby?color=%2334D058&label=pypi%20package" alt="Package version">
 </a>
 <a href="https://pypi.org/project/crybaby" target="_blank">
-    <img src="https://img.shields.io/pypi/pyversions/crybaby.svg?color=%2334D058" alt="Supported Python versions">
+    <img src="https://img.shields.io/pypi/pyversions/crybaby?color=%2334D058" alt="Supported Python versions">
 </a>
 </p>
 
