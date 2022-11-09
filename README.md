@@ -1,5 +1,5 @@
 # crybaby
-🥲 Micro Python exception handler that sends error messages to Slack. 🚨
+🥲 Python exception handler that sends error messages to Slack. 🚨
 
 ## Installation
 ```bash
