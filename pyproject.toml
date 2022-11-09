@@ -1,35 +1,34 @@
 [project]
-name = 'crybaby'
-dynamic = ['version']
-description = 'Python exception handler that sends error messages to Slack.'
-readme = 'README.md'
-requires-python = '>=3.6.0'
-license = 'MIT'
+name = "crybaby"
+dynamic = ["version"]
+description = "Python exception handler that sends error messages to Slack."
+readme = "README.md"
+requires-python = ">=3.6.0"
+license = "MIT"
 authors = [
-    { name = 'gyudoza', email = 'jujumilk3@gmail.com' },
+    { name = "gyudoza", email = "jujumilk3@gmail.com" },
 ]
 classifiers = [
-    'Programming Language :: Python :: 3',
-    'License :: OSI Approved :: MIT License',
-    'Operating System :: OS Independent',
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
 ]
-
-[project.urls]
-homepage = 'https://github.com/jujumilk3/crybaby'
-bug-tracker = 'https://github.com/jujumilk3/crybaby/issues'
-
-[build-system]
-requires = ['hatchling']
-build-backend = 'hatchling.build'
-
-[tool.hatch.version]
-path = 'crybaby/__init__.py'
-
-packages=["crybaby"]
 dependencies = [
     "requests",
 ]
 
+[project.urls]
+homepage = "https://github.com/jujumilk3/crybaby"
+bug-tracker = "https://github.com/jujumilk3/crybaby/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+path = "crybaby/__init__.py"
+
+packages=["crybaby"]
+
 [tool.black]
 line-length = 120
-include = '\.pyi?$'
