@@ -1,0 +1,37 @@
+name: Python versions test
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.6", "3.7", "3.8", "3.9", "3.10"]
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install crybaby
+      run: |
+        pip install crybaby
+
+    - name: Create Testcode
+      run: |
+        cat << 'EOF' >> main.py
+        import crybaby
+        crybaby.setup(slack_token="${{ secrets.SLACK_TOKEN }}", slack_channel_id="${{ secrets.SLACK_CHANNEL }}")
+        try:
+            raise Exception("Handled exception")
+        except Exception as e:
+            crybaby.catch(e)
+        raise Exception("Unhandled exception")
+        EOF
