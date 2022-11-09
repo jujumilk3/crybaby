@@ -4,7 +4,7 @@ import traceback
 import requests
 
 # package info
-__version__ = "0.0.2"
+__version__ = "0.0.3"
 
 from crybaby.exceptions import NoJoinChannelException
 

@@ -31,4 +31,4 @@ if __name__ == "__main__":
 ```
 Then
 
-![slack_example.png](./doc/slack_example.png)
+![slack_example.png](https://github.com/jujumilk3/crybaby/blob/main/doc/slack_example.png?raw=true)
