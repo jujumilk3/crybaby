@@ -35,3 +35,6 @@ jobs:
             crybaby.catch(e)
         raise Exception("Unhandled exception")
         EOF
+
+    - name: Run Testcode
+      run: python main.py
