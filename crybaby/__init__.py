@@ -8,8 +8,6 @@ __version__ = "0.0.1"
 
 from crybaby.exceptions import NoJoinChannelException
 
-slack_client = None
-
 
 class SlackClient:
     url = "https://slack.com/api/chat.postMessage"
@@ -58,7 +56,21 @@ class SlackClient:
     def register_exception_handler(self):
         sys.excepthook = self.crybaby_exception_handler
 
+    def capture_exception(self, exc_type, exc_value, exc_traceback):
+        traceback_text = "".join(traceback.format_exception(exc_type, exc_value, exc_traceback))
+        self.post_message(traceback_text)
+
+
+slack_client: SlackClient
+
 
 def setup(slack_token: str, slack_channel_id: str):
     global slack_client
     slack_client = SlackClient(slack_token, slack_channel_id)
+
+
+def catch(e: Exception):
+    global slack_client
+    if slack_client is None:
+        raise Exception("crybaby is not initialized")
+    slack_client.capture_exception(*sys.exc_info())
