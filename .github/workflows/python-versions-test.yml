@@ -35,5 +35,10 @@ jobs:
             crybaby.catch(e)
         EOF
 
-    - name: Run Testcode
+    - name: Run Test as Real
       run: python main.py
+
+    - name: Run pytest
+      run: |
+        pip install pytest
+        pytest
