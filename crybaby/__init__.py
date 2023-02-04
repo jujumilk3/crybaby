@@ -4,7 +4,7 @@ import traceback
 import requests
 
 # package info
-__version__ = "0.0.7"
+__version__ = "0.0.8"
 
 from crybaby.exceptions import NoJoinChannelException
 
@@ -12,11 +12,11 @@ from crybaby.exceptions import NoJoinChannelException
 class SlackClient:
     url = "https://slack.com/api/chat.postMessage"
 
-    def __init__(self, token: str, channel_id: str, apply_code_block: bool = True):
+    def __init__(self, token: str, channel_id: str, apply_code_block: bool, check_joined_at_channel: bool):
         self.token = token
         self.channel_id = channel_id
         self.apply_code_block = apply_code_block
-        if not self.is_token_joined_at_channel(channel_id):
+        if check_joined_at_channel and not self.is_token_joined_at_channel(channel_id):
             raise NoJoinChannelException("Token is not joined at channel")
         self.register_exception_handler()
 
@@ -64,9 +64,11 @@ class SlackClient:
 slack_client: SlackClient
 
 
-def setup(slack_token: str, slack_channel_id: str):
+def setup(
+    slack_token: str, slack_channel_id: str, apply_code_block: bool = True, check_joined_at_channel: bool = False
+):
     global slack_client
-    slack_client = SlackClient(slack_token, slack_channel_id)
+    slack_client = SlackClient(slack_token, slack_channel_id, apply_code_block, check_joined_at_channel)
 
 
 def catch(e: Exception):
